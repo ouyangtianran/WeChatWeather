@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+
+   <div data-role="header" >
+    <h1>苏州天气</h1>
+     <a href="#pagetwo" data-role="button" data-inline="true" data-icon="arrow-r" data-iconpos="right" class="ui-btn-right">明日天气</a>
+     <a href="#pagethree" data-role="button"data-inline="true"data-icon="arrow-l">其他城市</a>
+  </div>
+  
+  <div data-role="header">
+  <div data-role="navbar">
+    <ul>
+      <li><a href="#anylink">前一天</a></li>
+      <li><a href="#anylink">后一天</a></li>
+    </ul>
+  </div>
+</div>
+
+ <div data-role="collapsible-set">
+  <div data-role="collapsible">
+  <h1>今日：多云转晴</h1>
+  <p>气温：8-12℃</p>
+</div>
+   <div data-role="collapsible">
+  <h1>明日：晴</h1>
+  <p>气温：8-12℃</p>
+</div>
+   </div>
+
+ <div data-role="footer" class="ui-btn" >
+  <div data-role="controlgroup" data-type="horizontal">
+    <a href="#" data-role="button" data-icon="plus" data-theme="a">朋友圈</a>
+    <a href="#" data-role="button" data-icon="plus" data-theme="b">微博</a>
+    <a href="#" data-role="button" data-icon="plus" data-theme="c"> QQ 空间</a>
+  </div>
+</div>
+</div> 
+  
+  <div data-role="page" id="pagetwo">
+ 
+   <div data-role="header">
+    <h1>苏州天气</h1>
+     <a href="#" data-role="button" data-rel="back"data-inline="true"data-icon="arrow-l">返回</a>
+  </div>
+
+  <div data-role="content">
+    <p>明日：晴</p>
+    <a href="#pageone">查看今日天气</a>
+  </div>
+    
+    
+<div data-role="footer" class="ui-btn">
+  <div data-role="controlgroup" data-type="horizontal">
+    <a href="#" data-role="button" data-icon="plus">朋友圈</a>
+    <a href="#" data-role="button" data-icon="plus">微博</a>
+    <a href="#" data-role="button" data-icon="plus"> QQ 空间</a>
+  </div>
+</div>
+</div>
+  
+  
+<div data-role="page" id="pagethree">
+  
+  <div data-role="content">
+    <ul data-role="listview" data-inset="true" data-filter="true">
+      
+      <li data-role="list-divider">直辖市</li>
+      <li><a href="#">北京</a></li>
+      <li><a href="#">上海</a></li>
+      <li><a href="#">深圳</a></li>
+         
+    </ul>
+  </div>
+</div> 
+  
+
+</body>
+</html>
