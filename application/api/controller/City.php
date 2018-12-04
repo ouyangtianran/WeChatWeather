@@ -7,9 +7,9 @@ class City extends Controller
 {
     public function read()
     {
-        $name = input('name');
+        $city_name = input('city_name');
         $model = model('City');
-        $data = $model->getCity($name);
+        $data = $model->getCity($city_name);
         if ($data) {
             $code = 200;
         } else {

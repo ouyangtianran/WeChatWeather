@@ -12,7 +12,8 @@
 use think\Route;
 Route::rule('news/:id','api/news/read');
 Route::rule('weather/:citycode','api/weather/read');
-Route::rule('city/:name','api/city/read');
+
+Route::rule('city/:city_name','api/city/read');
 
 
 

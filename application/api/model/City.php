@@ -6,9 +6,9 @@ use think\Db;
 
 class City extends Model
 {
-    public function getCity($name = '北京')
+    public function getCity($city_name = '北京')
     {
-        $res = Db::name('ins_county')->where('county_name', $name)->select();
+        $res = Db::name('ins_county')->where('county_name', $city_name)->select();
         return $res;
     }
 
