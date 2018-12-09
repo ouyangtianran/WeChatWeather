@@ -50,26 +50,22 @@ else{
         if( strtolower( $postObj->MsgType) == 'text'){
              //接受文本信息
     		$content = $postObj->Content;
+          	//根据城市获取城市编码
+          $url = "http://123.207.147.163/city/".$content;
+          $a = file_get_contents($url);
+          $res = json_decode($a, true);
+          if($res['code'] == '200'){
+           
+          	//根据编码获取天气信息
+         $weather = file_get_contents('http://123.207.147.163/weather/'.$res['data']);
+         $res = json_decode($weather, true); 
+          	$content = $res['data'];
              //回复用户消息(纯文本格式)
                 $toUser   = $postObj->FromUserName;
                 $fromUser = $postObj->ToUserName;
                 $time     = time();
                 $msgType  =  'text';
-                $content  = $content.
-                ':
-    当前实况：
-        气温：-0.7°C
-        降水：0mm
-        风向风速：东北风 微风
-        空气质量：良
-        相对湿度：52%
-    未来3天天气情况：
-        星期五：
-            7°C，多云，西风，微风
-        星期六：
-            9°C，晴，西南风，微风
-        星期日：
-            10°C，晴，西南风，微风';
+                $content  =$content;
                 $template = "<xml>
                                 <ToUserName><![CDATA[%s]]></ToUserName>
                                 <FromUserName><![CDATA[%s]]></FromUserName>
@@ -80,4 +76,25 @@ else{
                 $info     = sprintf($template, $toUser, $fromUser, $time, $msgType, $content);
                 echo $info;
         }
+        else{
+           //回复用户消息(纯文本格式)
+                $toUser   = $postObj->FromUserName;
+                $fromUser = $postObj->ToUserName;
+                $time     = time();
+                $msgType  =  'text';
+                $content  ='请输入城市名，查询天气';
+                $template = "<xml>
+                                <ToUserName><![CDATA[%s]]></ToUserName>
+                                <FromUserName><![CDATA[%s]]></FromUserName>
+                                <CreateTime>%s</CreateTime>
+                                <MsgType><![CDATA[%s]]></MsgType>
+                                <Content><![CDATA[%s]]></Content>
+                                </xml>";
+                $info     = sprintf($template, $toUser, $fromUser, $time, $msgType, $content);
+                echo $info;
+        
+        
+        }
+        
     }
+}

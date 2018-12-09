@@ -8,7 +8,7 @@ class Weather extends Model
 {
     public function getWeather($citycode = 101010100)
     {
-        $res = Db::name('weather')->where('code', $citycode)->select();
+        $res = Db::name('weather')->where('code', $citycode)->value('val');
         return $res;
     }
 

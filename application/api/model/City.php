@@ -8,7 +8,7 @@ class City extends Model
 {
     public function getCity($city_name = '北京')
     {
-        $res = Db::name('ins_county')->where('county_name', $city_name)->select();
+        $res = Db::name('ins_county')->where('county_name', $city_name)->value('weather_code');
         return $res;
     }
 
